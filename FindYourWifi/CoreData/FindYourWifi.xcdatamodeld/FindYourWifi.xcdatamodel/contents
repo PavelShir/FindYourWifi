@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788.4" systemVersion="24F74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="BluetoothDeviceEntity" representedClassName="BluetoothDeviceEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="discoveredAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="rssi" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScanSessionEntity" inverseName="bluetoothDevices" inverseEntity="ScanSessionEntity"/>
+    </entity>
+    <entity name="ScanSessionEntity" representedClassName="ScanSessionEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="scanType" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="bluetoothDevices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BluetoothDeviceEntity" inverseName="session" inverseEntity="BluetoothDeviceEntity"/>
+        <relationship name="wifiDevices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="WiFiDeviceEntity" inverseName="session" inverseEntity="WiFiDeviceEntity"/>
+    </entity>
+    <entity name="WiFiDeviceEntity" representedClassName="WiFiDeviceEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="discoveredAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="hostname" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="ipAddress" optional="YES" attributeType="String"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScanSessionEntity" inverseName="wifiDevices" inverseEntity="ScanSessionEntity"/>
+    </entity>
+</model>
