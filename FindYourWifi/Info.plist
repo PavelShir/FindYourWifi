@@ -2,6 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Это приложение использует Bluetooth для поиска устройств поблизости</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Это приложение использует Bluetooth для поиска устройств поблизости</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Это приложение сканирует локальную сеть для поиска подключенных устройств</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_services._dns-sd._udp</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
