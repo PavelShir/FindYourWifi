@@ -21,6 +21,7 @@
         <attribute name="hostname" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="ipAddress" optional="YES" attributeType="String"/>
+        <attribute name="macAddress" optional="YES" attributeType="String"/>
         <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScanSessionEntity" inverseName="wifiDevices" inverseEntity="ScanSessionEntity"/>
     </entity>
 </model>

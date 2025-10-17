@@ -21,4 +21,12 @@ struct WiFiDevice: Identifiable, Hashable {
         self.hostname = hostname
         self.discoveredAt = discoveredAt
     }
+    
+    init(id: UUID, ipAddress: String, macAddress: String? = nil, hostname: String? = nil, discoveredAt: Date) {
+        self.id = id  // Используем ID из базы данных
+        self.ipAddress = ipAddress
+        self.macAddress = macAddress
+        self.hostname = hostname
+        self.discoveredAt = discoveredAt
+    }
 }

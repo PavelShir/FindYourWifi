@@ -148,9 +148,11 @@
 				DEVELOPMENT_TEAM = 72WF57A54C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindYourWifi/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Это приложение использует Bluetooth для поиска устройств поблизости";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Это приложение использует Bluetooth для поиска устройств поблизости";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Это приложение сканирует локальную сеть для поиска подключенных устройств";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
@@ -181,9 +183,11 @@
 				DEVELOPMENT_TEAM = 72WF57A54C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindYourWifi/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Это приложение использует Bluetooth для поиска устройств поблизости";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Это приложение использует Bluetooth для поиска устройств поблизости";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Это приложение сканирует локальную сеть для поиска подключенных устройств";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
