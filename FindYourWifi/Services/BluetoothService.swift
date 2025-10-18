@@ -81,5 +81,5 @@ extension BluetoothService: CBCentralManagerDelegate {
 }
 
 extension BluetoothService: CBPeripheralDelegate {
-    // Реализация делегатов для подключения к устройствам
+    // делегаты для подключения к устройствам
 }

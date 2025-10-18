@@ -5,7 +5,6 @@
 //  Created by Павел Широкий on 17.10.2025.
 //
 
-// MARK: - 1. Views/LaunchScreen.swift
 import SwiftUI
 
 struct LaunchScreen: View {

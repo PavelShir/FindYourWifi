@@ -23,7 +23,7 @@ struct WiFiDevice: Identifiable, Hashable {
     }
     
     init(id: UUID, ipAddress: String, macAddress: String? = nil, hostname: String? = nil, discoveredAt: Date) {
-        self.id = id  // Используем ID из базы данных
+        self.id = id  
         self.ipAddress = ipAddress
         self.macAddress = macAddress
         self.hostname = hostname
