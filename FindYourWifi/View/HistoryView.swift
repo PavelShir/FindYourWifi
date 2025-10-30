@@ -46,75 +46,75 @@ struct HistoryView: View {
     @State private var showDatePicker = false
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                VStack(spacing: 12) {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.gray)
-                        
-                        TextField("Поиск по имени устройства", text: $coordinator.searchText)
-                            .textFieldStyle(.plain)
-                        
-                        if !coordinator.searchText.isEmpty {
-                            Button(action: { coordinator.searchText = "" }) {
-                                Image(systemName: "xmark.circle.fill")
-                                    .foregroundColor(.gray)
-                            }
-                        }
-                    }
-                    .padding(10)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(10)
+        VStack(spacing: 0) {
+            VStack(spacing: 12) {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
                     
-                    HStack {
-                        Button(action: { showDatePicker.toggle() }) {
-                            HStack {
-                                Image(systemName: "calendar")
-                                Text(coordinator.selectedDate != nil ? formatDate(coordinator.selectedDate!) : "Фильтр по дате")
-                                    .font(.subheadline)
-                            }
-                            .foregroundColor(.blue)
-                        }
-                        
-                        Spacer()
-                        
-                        if coordinator.selectedDate != nil {
-                            Button("Сбросить") {
-                                coordinator.selectedDate = nil
-                            }
-                            .font(.subheadline)
+                    TextField("Поиск по имени устройства", text: $coordinator.searchText)
+                        .textFieldStyle(.plain)
+                    
+                    if !coordinator.searchText.isEmpty {
+                        Button(action: { coordinator.searchText = "" }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.gray)
                         }
                     }
                 }
-                .padding()
+                .padding(10)
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
                 
-                if coordinator.filteredSessions.isEmpty {
-                    emptyStateView
-                } else {
-                    List(coordinator.filteredSessions) { session in
-                        SessionRow(session: session)
+                HStack {
+                    Button(action: { showDatePicker.toggle() }) {
+                        HStack {
+                            Image(systemName: "calendar")
+                            Text(coordinator.selectedDate != nil ? formatDate(coordinator.selectedDate!) : "Фильтр по дате")
+                                .font(.subheadline)
+                        }
+                        .foregroundColor(.blue)
                     }
-                    .listStyle(.insetGrouped)
+                    
+                    Spacer()
+                    
+                    if coordinator.selectedDate != nil {
+                        Button("Сбросить") {
+                            coordinator.selectedDate = nil
+                        }
+                        .font(.subheadline)
+                    }
                 }
             }
-            .navigationTitle("История")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { coordinator.loadSessions() }) {
-                        Image(systemName: "arrow.clockwise")
-                    }
+            .padding()
+            
+            if coordinator.filteredSessions.isEmpty {
+                emptyStateView
+            } else {
+                List(coordinator.filteredSessions) { session in
+                    SessionRow(session: session)
                 }
-            }
-            .sheet(isPresented: $showDatePicker) {
-                DatePickerSheet(selectedDate: $coordinator.selectedDate)
-            }
-            .onAppear {
-                coordinator.loadSessions()
+                .listStyle(.insetGrouped)
             }
         }
+        .navigationTitle("История")
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: { coordinator.loadSessions() }) {
+                    Image(systemName: "arrow.clockwise")
+                }
+            }
+        }
+        .sheet(isPresented: $showDatePicker) {
+            DatePickerSheet(selectedDate: $coordinator.selectedDate)
+        }
+        .onAppear {
+            coordinator.loadSessions()
+        }
     }
+}
+
     
     private var emptyStateView: some View {
         VStack(spacing: 20) {
@@ -139,7 +139,7 @@ struct HistoryView: View {
         formatter.dateStyle = .short
         return formatter.string(from: date)
     }
-}
+
 
 struct SessionRow: View {
     let session: ScanSession
@@ -230,9 +230,4 @@ struct DatePickerSheet: View {
             }
         }
     }
-}
-
-// MARK: - Preview
-#Preview {
-    DeviceListView()
 }

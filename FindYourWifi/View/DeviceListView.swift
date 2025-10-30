@@ -92,6 +92,13 @@ class DeviceListCoordinator: ObservableObject {
             wifiVM?.saveSession()
         }
     }
+    
+    func resetDevices() {
+        devices.removeAll()
+        scanProgress = 0.0
+        isScanning = false
+    }
+
 }
 
 struct DeviceListView: View {
@@ -129,16 +136,27 @@ struct DeviceListView: View {
             .navigationTitle("Устройства")
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        if coordinator.isScanning {
-                            coordinator.stopScanning()
-                        } else {
-                            coordinator.startScanning()
-                        }
-                    }) {
-                        Image(systemName: coordinator.isScanning ? "stop.circle" : "arrow.clockwise")
+                if coordinator.isScanning {
+                    Button(action: { coordinator.stopScanning() }) {
+                        Image(systemName: "stop.circle")
                             .imageScale(.large)
+                    }
+                } else {
+                    HStack(spacing: 16) {
+                        Button(action: { coordinator.startScanning() }) {
+                            Image(systemName: "arrow.clockwise")
+                                .imageScale(.large)
+                        }
+                        
+                        if !coordinator.devices.isEmpty {
+                            Button(action: {
+                                withAnimation {
+                                    coordinator.resetDevices()}
+                            }) {
+                                Image(systemName: "trash")
+                                    .imageScale(.large)
+                            }
+                        }
                     }
                 }
             }
@@ -158,23 +176,18 @@ struct DeviceListView: View {
             List {
                 ForEach(coordinator.devices, id: \.self) { device in
                     if selectedSegment == 0, let btDevice = device.base as? BluetoothDevice {
-                        BluetoothDeviceRow(device: btDevice)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                selectedDevice = device
-                                onDeviceSelected?(device)
-                            }
+                        NavigationLink(destination: DeviceDetailView(device: btDevice)) {
+                            BluetoothDeviceRow(device: btDevice)
+                        }
                     } else if selectedSegment == 1, let wifiDevice = device.base as? WiFiDevice {
-                        WiFiDeviceRow(device: wifiDevice)
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                selectedDevice = device
-                                onDeviceSelected?(device)
-                            }
+                        NavigationLink(destination: DeviceDetailView(device: wifiDevice)) {
+                            WiFiDeviceRow(device: wifiDevice)
+                        }
                     }
                 }
             }
             .listStyle(.insetGrouped)
+
         }
     }
     
