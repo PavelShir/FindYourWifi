@@ -42,9 +42,12 @@ The app follows a modular MVVM + Coordinator structure:\
 This project is licensed under the MIT License — feel free to use, modify, and distribute with attribution.
 
 <table> <tr> 
-  <td><img src="./screenshots/shot1.png" alt="Screenshot 1" width="160"/></td> 
-  <td><img src="./screenshots/shot2.png" alt="Screenshot 2" width="160"/></td> 
-  <td><img src="./screenshots/shot3.png" alt="Screenshot 3" width="160"/></td> 
-  <td><img src="./screenshots/shot4.png" alt="Screenshot 4" width="160"/></td> 
-  <td><img src="./screenshots/shot5.png" alt="Screenshot 5" width="160"/></td> 
-  <td><img src="./screenshots/shot6.png" alt="Screenshot 6" width="160"/></td> </tr> </table>
+  <td><img src="./Screenshots/shot1.PNG" alt="Screenshot 1" width="160"/></td> 
+  <td><img src="./Screenshots/shot2.png" alt="Screenshot 2" width="160"/></td> 
+  <td><img src="./Screenshots/shot3.png" alt="Screenshot 3" width="160"/></td> 
+  <td><img src="./Screenshots/shot4.PNG" alt="Screenshot 4" width="160"/></td> 
+  <td><img src="./Screenshots/shot5.PNG" alt="Screenshot 5" width="160"/></td> 
+  <td><img src="./Screenshots/shot6.png" alt="Screenshot 6" width="160"/></td>
+  <td><img src="./Screenshots/shot7.png" alt="Screenshot 7" width="160"/></td>
+  <td><img src="./Screenshots/shot8.png" alt="Screenshot 8" width="160"/></td>
+  <td><img src="./Screenshots/shot9.png" alt="Screenshot 9" width="160"/></td></tr> </table>
